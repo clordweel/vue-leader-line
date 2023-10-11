@@ -1,14 +1,22 @@
 {
   "name": "vue-leader-line",
   "version": "0.1.1",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lib": "vue-cli-service build --target lib --name leader-line ./src/index.js"
   },
+  "author": {
+    "email": "clord.weel@outlook.com",
+    "name": "Clord Weel"
+  },
+  "homepage": "https://github.com/clordweel/vue-leader-line",
+  "license": "MIT",
   "main": "./dist/leader-line.common.js",
+  "files": [
+    "dist/*"
+  ],
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
     "vue": "^2.6.11"
