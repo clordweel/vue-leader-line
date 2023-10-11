@@ -1,6 +1,8 @@
 # A Very Simple Leader Line Component of Vue2
 
-> WIP.
+![npm](https://img.shields.io/npm/v/vue-leader-line-nz)
+
+> WIP
 
 ## Features
 
@@ -9,14 +11,14 @@
 - [x] One to One
 - [x] One to Many
 
-![preview_0](./public/leader-line-preview_0.png)
+![preview_0](https://github.com/clordweel/vue-leader-line/raw/main/public/leader-line-preview_0.png)
 
 ## Usage
 
 ### Binds Elements
 
 ```ts
-import LeaderLine from "vue-leader-line";
+import LeaderLine from "vue-leader-line-nz";
 
 // ...
 

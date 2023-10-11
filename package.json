@@ -1,6 +1,6 @@
 {
   "name": "vue-leader-line-nz",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "(WIP) A Very Simple Vue.js component for LeaderLine.",
   "keywords": [
     "vue",
@@ -22,7 +22,6 @@
   "main": "./dist/leader-line.common.js",
   "files": [
     "dist/*",
-    "public/*",
     "package.json"
   ],
   "dependencies": {
