@@ -13,6 +13,9 @@
 
 ## Usage
 
+<details>
+<summary>Demo Code</summary>
+
 ```html
 <template>
   <div id="app">
@@ -73,6 +76,8 @@
   }
 </style>
 ```
+
+</details>
 
 ## Props
 
