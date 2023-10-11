@@ -73,3 +73,44 @@
   }
 </style>
 ```
+
+## Props
+
+```ts
+interface Props {
+  // default: "currentColor"
+  color: string;
+
+  // default: 2
+  thickness: number;
+
+  // If true, the line will be constrained to the two ends of vertical line.
+  // default: true
+  constraint: boolean;
+
+  // default: [0, 0]
+  padding: [number, number];
+
+  // default: "center"
+  align: "start" | "end" | "center";
+}
+```
+
+## Methods
+
+```ts
+interface Methods {
+  // if EndRef is an array, draw multiple lines
+  binds(StartRef: HTMLElement, EndRef: HTMLElement | HTMLElement[]): void;
+}
+```
+
+## Development
+
+```sh
+# build lib
+npm run build:lib
+
+# serve demo and access http://localhost:8080
+npm run serve
+```

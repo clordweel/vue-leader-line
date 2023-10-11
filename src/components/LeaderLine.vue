@@ -44,15 +44,15 @@ export default {
 
     align: {
       type: String,
-      default: "auto",
-      validator: (v) => ["start", "end", "auto"].includes(v),
+      default: "center",
+      validator: (v) => ["start", "end", "center"].includes(v),
     },
   },
   components: {
     VerticalLeaderLine,
   },
   methods: {
-    calc(startEl, endEl) {
+    _calc(startEl, endEl) {
       const {
         offsetLeft: sx,
         offsetTop: sy,
@@ -96,7 +96,7 @@ export default {
         endElements = endRef;
       }
 
-      this.$data.lines = endElements.map((end) => this.calc(startRef, end));
+      this.$data.lines = endElements.map((end) => this._calc(startRef, end));
     },
   },
 };
