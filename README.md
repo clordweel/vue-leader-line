@@ -13,6 +13,28 @@
 
 ## Usage
 
+### Binds Elements
+
+```ts
+import LeaderLine from "vue-leader-line";
+
+// ...
+
+mounted() {
+  const ref = this.$refs.leaderLine;
+
+  // one to one
+  ref.binds(this.$refs.start, this.$refs.end);
+
+  // one to many
+  ref.binds(this.$refs.start, [
+    this.$refs.end2,
+    this.$refs.end3,
+    this.$refs.end4,
+  ]);
+}
+```
+
 <details>
 <summary>Demo Code</summary>
 
