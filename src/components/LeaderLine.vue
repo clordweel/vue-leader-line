@@ -1,11 +1,26 @@
 <template>
-  <vertical-leader-line
-    v-bind="{ thickness, color }"
-    :start="start"
-    :end="end"
-    :padding="padding_"
-    style="position: absolute; top: 0; left: 0"
-  />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    style="
+      overflow: visible;
+      height: 0.1px;
+      width: 0.1px;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      position: absolute;
+    "
+  >
+    <vertical-leader-line
+      v-for="(line, i) in lines"
+      :key="i"
+      v-bind="{ thickness, color }"
+      :start="line.start"
+      :end="line.end"
+      :padding="line.padding"
+    />
+  </svg>
 </template>
 
 <script>
@@ -14,7 +29,7 @@ import VerticalLeaderLine from "./VerticalLeaderLine";
 export default {
   name: "LeaderLine",
   data() {
-    return { start: [0, 0], end: [0, 0], padding_: [0, 0] };
+    return { lines: [], start: [0, 0], end: [0, 0], padding_: [0, 0] };
   },
   props: {
     color: { type: String, default: "currentColor" },
@@ -37,7 +52,7 @@ export default {
     VerticalLeaderLine,
   },
   methods: {
-    binds(startEl, endEl) {
+    calc(startEl, endEl) {
       const {
         offsetLeft: sx,
         offsetTop: sy,
@@ -66,9 +81,22 @@ export default {
         }
       }
 
-      this.$data.start = [sx + sw, sy + sh / 2];
-      this.$data.end = [ex, ey + eh / 2];
-      this.$data.padding_ = [sp, ep];
+      return {
+        start: [sx + sw, sy + sh / 2],
+        end: [ex, ey + eh / 2],
+        padding: [sp, ep],
+      };
+    },
+    binds(startRef, endRef) {
+      let endElements = [];
+
+      if (!Array.isArray(endRef)) {
+        endElements = [endRef];
+      } else {
+        endElements = endRef;
+      }
+
+      this.$data.lines = endElements.map((end) => this.calc(startRef, end));
     },
   },
 };

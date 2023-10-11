@@ -1,14 +1,32 @@
 # A Very Simple Leader Line Component of Vue2
 
+> WIP.
+
+## Features
+
+- [x] Vertical Leader Line
+- [ ] Horizontal Leader Line
+- [x] One to One
+- [x] One to Many
+
+![preview_0](./public/leader-line-preview_0.png)
+
 ## Usage
 
 ```html
 <template>
   <div id="app">
-    <div class="start" ref="start">START</div>
     <div class="end" ref="end">END</div>
 
-    <leader-line constraint ref="z" />
+    <div class="start" ref="start">START</div>
+
+    <div class="end" ref="end2">END1</div>
+    <div class="end" ref="end3">END2</div>
+    <div class="end" ref="end4">END3</div>
+
+    <leader-line constraint align="start" :padding="[16]" ref="z" />
+
+    <leader-line :constraint="false" ref="z1" />
   </div>
 </template>
 
@@ -21,7 +39,15 @@
       LeaderLine,
     },
     mounted() {
+      // one to one
       this.$refs.z.binds(this.$refs.start, this.$refs.end);
+
+      // one to many
+      this.$refs.z1.binds(this.$refs.start, [
+        this.$refs.end2,
+        this.$refs.end3,
+        this.$refs.end4,
+      ]);
     },
   };
 </script>
@@ -37,13 +63,13 @@
   }
   .start {
     width: 4em;
-    margin-top: 40px;
+    margin-top: 80px;
     margin-left: 30px;
   }
   .end {
-    width: 3em;
-    margin-top: 240px;
-    margin-left: 300px;
+    width: 3.2em;
+    margin-top: 20px;
+    margin-left: 160px;
   }
 </style>
 ```

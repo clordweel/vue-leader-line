@@ -1,14 +1,8 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    version="1.1"
-    style="overflow: visible; height: 0.1px; width: 0.1px"
-  >
-    <polyline
-      :points="points"
-      :style="`fill: none; stroke: ${color}; stroke-width: ${thickness}`"
-    />
-  </svg>
+  <polyline
+    :points="points"
+    :style="`fill: none; stroke: ${color}; stroke-width: ${thickness}`"
+  />
 </template>
 
 <script>
