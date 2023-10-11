@@ -15,42 +15,30 @@
 export default {
   name: "VerticalLeaderLine",
   props: {
-    /* 线条颜色 */
     color: { type: String, default: "currentColor" },
-    /* 线条粗细 */
     thickness: { type: Number, default: 3 },
 
-    /* 垂线起始坐标：[start, end] */
+    /* [start, end] */
     start: Array,
-    /* 垂线结束坐标：[start, end] */
+    /* [start, end] */
     end: Array,
-    /* 起始结束点位距离两边的边距：[start, end] */
+    /* [start, end] */
     padding: Array,
-
-    /* 对齐方向： start, end, auto */
-    align: {
-      type: String,
-      default: "start",
-      validator: (v) => ["start", "end", "auto"].includes(v),
-    },
   },
 
   computed: {
     points() {
-      const { start, end, padding, thickness, align } = this.$props;
+      const { start, end, padding } = this.$props;
 
-      const [lsx = 0, lsy = thickness] = start;
-      const [lex, ley] = end;
-      const [sp, ep] = padding;
-
-      const sx = { start: lsx, end: lex, auto: lsx }[align];
-      const ex = { start: lsx, end: lex, auto: lex }[align];
+      const [lsx = 0, lsy = 0] = start;
+      const [lex = 0, ley = 0] = end;
+      const [sp = 0, ep = 0] = padding;
 
       const [_1, _2, _3, _4] = [
-        `${sx},${lsy - thickness / 2}`,
-        `${sx + sp},${lsy - thickness / 2}`,
-        `${ex + sp},${ley}`,
-        `${ex + sp + ep},${ley}`,
+        `${lsx},${lsy}`,
+        `${lsx + sp},${lsy}`,
+        `${lex - ep},${ley}`,
+        `${lex},${ley}`,
       ];
 
       return `${_1} ${_2} ${_3} ${_4}`;
