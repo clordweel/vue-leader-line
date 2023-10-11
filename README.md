@@ -1,6 +1,6 @@
 # A Very Simple Leader Line Component of Vue2
 
-![npm](https://img.shields.io/npm/v/vue-leader-line-nz)
+[![npm](https://img.shields.io/npm/v/vue-leader-line-nz)](https://www.npmjs.com/package/vue-leader-line-nz)
 
 > WIP
 
